@@ -1,0 +1,462 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --pastel-pink: #ffd1dc;
+  --deep-red: #800020;
+  --soft-white: rgba(255, 255, 255, 0.92);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Montserrat", "Segoe UI", sans-serif;
+  background: var(--pastel-pink);
+  color: var(--deep-red);
+}
+
+body.intro-active {
+  overflow: hidden;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+#mainContent {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 700ms ease, transform 700ms ease;
+  will-change: opacity, transform;
+}
+
+.main-hidden {
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, rgba(255, 209, 220, 0.95), rgba(128, 0, 32, 0.45));
+  padding: 24px;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 700ms ease, transform 700ms ease, visibility 0s linear 700ms;
+  visibility: visible;
+  will-change: opacity, transform;
+}
+
+.intro-overlay.is-hidden {
+  opacity: 0;
+  transform: scale(1.02);
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.intro-card {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 32px 28px;
+  border-radius: 24px;
+  box-shadow: 0 20px 45px rgba(128, 0, 32, 0.25);
+  position: relative;
+  max-width: 320px;
+  width: 100%;
+}
+
+.intro-title {
+  margin: 0 0 16px;
+  font-family: "Dancing Script", cursive;
+  font-size: 2rem;
+}
+
+.intro-hint {
+  margin: 16px 0 0;
+  font-size: 0.95rem;
+  color: rgba(128, 0, 32, 0.75);
+}
+
+.gift-button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.gift-button:focus-visible {
+  outline: 3px solid rgba(128, 0, 32, 0.5);
+  outline-offset: 6px;
+  border-radius: 16px;
+}
+
+.gift-image {
+  width: min(220px, 70vw);
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 14px 28px rgba(128, 0, 32, 0.3));
+  animation: gift-wiggle 3.2s ease-in-out infinite;
+}
+
+.gift-button:hover .gift-image {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 18px rgba(255, 115, 170, 0.8));
+}
+
+.intro-hearts {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.intro-heart {
+  position: absolute;
+  width: var(--size, 14px);
+  height: var(--size, 14px);
+  background: var(--heart-color, #ff4d6d);
+  transform: translate(0, 0) rotate(calc(45deg + var(--rotate, 0deg)));
+  animation: heart-burst var(--duration, 1.8s) cubic-bezier(0.22, 0.78, 0.36, 1) forwards;
+  opacity: 0;
+  filter: drop-shadow(0 0 var(--glow, 8px) var(--glow-color, rgba(255, 77, 109, 0.55)));
+}
+
+.intro-heart::before,
+.intro-heart::after {
+  content: "";
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.intro-heart::before {
+  top: calc(-0.5 * var(--size, 14px));
+  left: 0;
+}
+
+.intro-heart::after {
+  left: calc(-0.5 * var(--size, 14px));
+  top: 0;
+}
+
+@keyframes heart-burst {
+  0% {
+    transform: translate(0, 0) scale(0.35) rotate(calc(45deg + var(--rotate, 0deg)));
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  70% {
+    transform: translate(calc(var(--x, 0) * 0.7), calc(var(--y, -120px) * 0.7))
+      scale(calc(var(--scale, 1) * 1.05)) rotate(calc(45deg + var(--rotate, 0deg)));
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(var(--x, 0), var(--y, -120px)) scale(var(--scale, 1)) rotate(calc(45deg + var(--rotate, 0deg)));
+    opacity: 0;
+  }
+}
+
+@keyframes gift-wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+  75% {
+    transform: rotate(-2deg);
+  }
+}
+
+.hero-section {
+  position: relative;
+  background-image: var(--hero-image);
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(128, 0, 32, 0.7), rgba(255, 209, 220, 0.4));
+}
+
+.hero-title {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(2.8rem, 7vw, 4.8rem);
+  text-shadow: 0 10px 30px rgba(128, 0, 32, 0.5);
+}
+
+.typewriter {
+  display: inline-block;
+  border-right: 3px solid rgba(255, 255, 255, 0.7);
+  padding-right: 6px;
+  min-height: 1.2em;
+}
+
+.cta-button {
+  background: var(--soft-white);
+  color: var(--deep-red);
+  border-radius: 999px;
+  padding: 12px 28px;
+  font-weight: 600;
+  box-shadow: 0 12px 24px rgba(128, 0, 32, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(128, 0, 32, 0.3);
+}
+
+.section-wrapper {
+  padding: 80px 24px;
+}
+
+.section-title {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 48px;
+}
+
+.section-title h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  margin-bottom: 10px;
+}
+
+.section-title p {
+  margin: 0;
+  font-size: 1.05rem;
+  color: rgba(128, 0, 32, 0.8);
+}
+
+.section-title.light p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.timeline {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  padding-left: 24px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12px;
+  width: 3px;
+  height: 100%;
+  background: rgba(128, 0, 32, 0.3);
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 32px 24px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 2px;
+  top: 6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--deep-red);
+  box-shadow: 0 0 0 6px rgba(255, 209, 220, 0.7);
+}
+
+.timeline-card {
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 18px;
+  padding: 18px 22px;
+  box-shadow: 0 12px 30px rgba(128, 0, 32, 0.12);
+}
+
+.timeline-card h3 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+}
+
+.timeline-card p {
+  margin: 0;
+  color: rgba(128, 0, 32, 0.85);
+}
+
+.gallery-grid {
+  column-count: 3;
+  column-gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(128, 0, 32, 0.18);
+  transform: translateZ(0);
+}
+
+.gallery-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-outro {
+  max-width: 720px;
+  margin: 32px auto;
+  font-size: 1.05rem;
+  color: rgba(128, 0, 32, 0.85);
+}
+
+.love-letter-card {
+  max-width: 760px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 28px;
+  padding: 36px;
+  box-shadow: 0 20px 40px rgba(128, 0, 32, 0.2);
+  line-height: 1.8;
+}
+
+.love-letter-card h3 {
+  font-family: "Dancing Script", cursive;
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+.signature {
+  margin-top: 24px;
+  font-weight: 600;
+}
+
+.music-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 28px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+}
+
+.music-disc {
+  width: 130px;
+  height: 130px;
+  border-radius: 0;
+  overflow: hidden;
+  flex: 0 0 auto;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+  animation: none;
+}
+
+.music-disc img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.music-info {
+  flex: 1 1 320px;
+  min-width: 220px;
+}
+
+.song-meta {
+  margin: 12px 0 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.music-card h3 {
+  margin: 0 0 6px;
+  font-family: "Dancing Script", cursive;
+  font-size: 2rem;
+}
+
+.music-button {
+  background: #ffffff;
+  color: var(--deep-red);
+  border-radius: 999px;
+  padding: 12px 28px;
+  font-weight: 600;
+  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.25);
+}
+
+@keyframes disc-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#heartsCanvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery-grid {
+    column-count: 1;
+  }
+
+  .section-wrapper {
+    padding: 64px 18px;
+  }
+
+  .love-letter-card {
+    padding: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

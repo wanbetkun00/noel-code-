@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Valentine Special</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-[#FFD1DC] text-[#800020]">
+    <canvas id="heartsCanvas" aria-hidden="true"></canvas>
+
+    <section id="introOverlay" class="intro-overlay" aria-label="Mở quà">
+      <div class="intro-card">
+        <p class="intro-title">Chạm vào hộp quà nhé</p>
+        <button id="giftButton" class="gift-button" type="button" aria-label="Mở quà">
+          <img class="gift-image" src="boxgit.png" alt="Gift box" />
+        </button>
+        <p class="intro-hint">Hover để phóng to, click để mở quà</p>
+        <div id="introHearts" class="intro-hearts" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <main id="mainContent" class="main-hidden relative overflow-hidden">
+      <!-- Hero Section -->
+      <section
+        class="hero-section min-h-screen flex items-center justify-center px-6 py-16"
+        style="--hero-image: url('image1.jpeg')"
+      >
+        <!-- INSERT_IMAGE_HERE: Hero background image -->
+        <div class="hero-overlay"></div>
+        <div class="relative z-10 text-center max-w-3xl">
+          <p class="uppercase tracking-[0.35em] text-sm text-white/80 mb-4">Valentine 2026</p>
+          <h1 class="hero-title text-white mb-6">
+            <span class="block">Happy Valentine's Day,</span>
+            <span id="typewriter" class="typewriter"></span>
+          </h1>
+       
+          <p class="text-white/90 text-lg md:text-xl">
+           
+            Gửi đến người anh yêu nhất trên đời với tất cả sự dịu dàng.
+          </p>
+          <button id="scrollToTimeline" class="cta-button mt-10" type="button">
+            Khám phá những bức ảnh của em
+          </button>
+        </div>
+      </section>
+
+      <!-- Gallery Section -->
+      <section id="gallery" class="section-wrapper bg-white/60">
+        <div class="section-title">
+          <h2>Gallery Của Em </h2>
+          <p>
+            <!-- INSERT_TEXT_HERE: Gallery intro -->
+            Mỗi bức ảnh là một lần tim anh mỉm cười ^^
+          </p>
+        
+        </div>
+        <div class="gallery-grid">
+        
+          <figure class="gallery-item">
+            <!-- INSERT_IMAGE_HERE: Gallery image 2 -->
+            <img src="image2.jpeg" alt="Khoảnh khắc 2" />
+          </figure>
+          <figure class="gallery-item">
+            <!-- INSERT_IMAGE_HERE: Gallery image 3 -->
+            <img src="image3.jpeg" alt="Khoảnh khắc 3" />
+          </figure>
+          <figure class="gallery-item">
+            <!-- INSERT_IMAGE_HERE: Gallery image 4 -->
+            <img src="image4.jpeg" alt="Khoảnh khắc 4" />
+          </figure>
+          <figure class="gallery-item">
+            <!-- INSERT_IMAGE_HERE: Gallery image 5 -->
+            <img src="image5.jpeg" alt="Khoảnh khắc 5" />
+          </figure>
+          <figure class="gallery-item">
+            <!-- INSERT_IMAGE_HERE: Gallery image 6 -->
+            <img src="image6.jpeg" alt="Khoảnh khắc 6" />
+          </figure>
+          <figure class="gallery-item">
+            <!-- INSERT_IMAGE_HERE: Gallery image 7 -->
+            <img src="image7.jpeg" alt="Khoảnh khắc 7" />
+          </figure>
+          <figure class="gallery-item">
+            <!-- INSERT_IMAGE_HERE: Gallery image 8 -->
+            <img src="image8.jpeg" alt="Khoảnh khắc 8" />
+          </figure>
+          <figure class="gallery-item">
+            <!-- INSERT_IMAGE_HERE: Gallery image 9 -->
+            <img src="image9.jpeg" alt="Khoảnh khắc 9" />
+          </figure>
+          <figure class="gallery-item">
+            <!-- INSERT_IMAGE_HERE: Gallery image 10 -->
+            <img src="image10.jpeg" alt="Khoảnh khắc 10" />
+          </figure>
+        </div>
+        <p class="gallery-outro text-center">
+          <!-- INSERT_TEXT_HERE: Gallery intro -->
+         Mong em hãy chụp thật nhiều ảnh, để anh có thể mỉm cười mỗi ngày nhá. 
+        </p>
+      </section>
+
+      <!-- Love Letter Section -->
+      <section class="section-wrapper">
+        <div class="section-title">
+          <h2>Love Letter</h2>
+          <p>
+            <!-- INSERT_TEXT_HERE: Love letter intro -->
+            Một lá thư nhỏ để nói rằng anh thích em nhiều đến nhường nào.
+          </p>
+        </div>
+        <div class="love-letter-card">
+          <h3>Gửi Uyên,</h3>
+          <p>
+            <!-- INSERT_TEXT_HERE: Love letter content -->
+            Em là người đầu tiên kéo Anh ra khỏi những ngày u tố ở đội xung kích 
+            ngay vào lúc Anh muốn rời đội nhất. Và từ lúc đó Anh dần để ý đến Em 
+            nhiều hơn. Có hàng ngàn lý do tại sao lại là Anh, Anh muốn tìm hiểu 
+            về Em nhiều hơn và rồi Anh đã thích Em từ lúc nào không hay. Cảm ơn Em, 
+            vì đã chọn Anh là mối tình đầu, tuy Anh hơi vô tâm và rất hay OVTK nhưng 
+            mà Anh sẽ cố gắng thay đổi một phiên bản tốt hơn. Anh hứa sẽ luôn nắm tay
+             Em thật chặt, đi cùng Em qua mọi mùa thương nhớ.
+          </p>
+          <p class="signature">
+            <!-- INSERT_TEXT_HERE: Signature -->
+            Yêu em. 
+          </p>
+        </div>
+      </section>
+
+      <!-- Music Section -->
+      <section class="section-wrapper bg-[#800020] text-white">
+        <div class="section-title light">
+          <h2>Music & Hearts</h2>
+          <p>
+            <!-- INSERT_TEXT_HERE: Music intro -->
+            Bản nhạc này là Anhnh thích và nó dẫn đến liên tưởng đến Em .
+          </p>
+        </div>
+        <div class="music-card">
+          <div class="music-disc" aria-hidden="true">
+            <img src="magnolia_.png" alt="Magnolia album art" />
+          </div>
+          <div class="music-info">
+            <h3>Our Song</h3>
+            <p>
+              <!-- INSERT_TEXT_HERE: Song description -->
+              Hãy bật nhạc và để những trái tim bay khắp không gian.
+            </p>
+            <p class="song-meta">Magnolia · keshi</p>
+          </div>
+          <button id="musicToggle" class="music-button" type="button">Play Music</button>
+        </div>
+        <audio id="bgMusic" preload="auto">
+          <!-- INSERT_AUDIO_HERE: Replace with your audio file -->
+          <source src="magnolia.mp3" type="audio/mpeg" />
+        </audio>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
