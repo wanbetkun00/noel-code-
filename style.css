@@ -114,10 +114,11 @@ main {
 }
 
 .intro-hearts {
-  position: absolute;
+  position: fixed;
   inset: 0;
   pointer-events: none;
   overflow: visible;
+  z-index: 25;
 }
 
 .intro-heart {
@@ -439,6 +440,19 @@ main {
 }
 
 @media (max-width: 640px) {
+  .hero-title {
+    font-size: clamp(2.1rem, 8vw, 3.2rem);
+  }
+
+  .hero-section .text-lg {
+    font-size: 1rem;
+  }
+
+  .hero-section .cta-button {
+    font-size: 0.95rem;
+    padding: 10px 22px;
+  }
+
   .gallery-grid {
     column-count: 1;
   }

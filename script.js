@@ -154,26 +154,23 @@ window.addEventListener("load", () => {
 });
 
 const createBurstHearts = () => {
-  if (!introHearts || !giftButton) return;
-  const rect = giftButton.getBoundingClientRect();
-  const centerX = rect.left + rect.width / 2;
-  const centerY = rect.top + rect.height / 2;
-  const total = 30;
+  if (!introHearts) return;
+  const total = 140;
 
   for (let i = 0; i < total; i += 1) {
     const heart = document.createElement("span");
     heart.className = "intro-heart";
-    heart.style.left = `${centerX}px`;
-    heart.style.top = `${centerY}px`;
-    const duration = randomBetween(1.2, 2.1);
+    heart.style.left = `${randomBetween(0, window.innerWidth)}px`;
+    heart.style.top = `${randomBetween(0, window.innerHeight)}px`;
+    const duration = randomBetween(1.4, 2.6);
     const color = HEART_COLORS[Math.floor(Math.random() * HEART_COLORS.length)];
-    heart.style.setProperty("--x", `${randomBetween(-160, 160)}px`);
-    heart.style.setProperty("--y", `${randomBetween(-240, -90)}px`);
-    heart.style.setProperty("--scale", `${randomBetween(0.7, 1.35)}`);
+    heart.style.setProperty("--x", `${randomBetween(-220, 220)}px`);
+    heart.style.setProperty("--y", `${randomBetween(-320, -80)}px`);
+    heart.style.setProperty("--scale", `${randomBetween(0.7, 1.45)}`);
     heart.style.setProperty("--duration", `${duration}s`);
-    heart.style.setProperty("--size", `${randomBetween(10, 18)}px`);
+    heart.style.setProperty("--size", `${randomBetween(10, 20)}px`);
     heart.style.setProperty("--heart-color", color);
-    heart.style.setProperty("--glow", `${randomBetween(6, 12)}px`);
+    heart.style.setProperty("--glow", `${randomBetween(6, 14)}px`);
     heart.style.setProperty("--glow-color", color);
     heart.style.setProperty("--rotate", `${randomBetween(-25, 25)}deg`);
     introHearts.appendChild(heart);
